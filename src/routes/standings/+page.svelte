@@ -19,9 +19,9 @@ export async function getStandings() {
   });
 </script>
 
-<div class="container">
+<div class="container mx-auto my-6">
 	<div class="overflow-x-auto">
-	  <table class="table table-lg m-2 text-center w-full">
+	  <table class="table table-lg text-center w-full">
 	    <!-- head -->
 	    <thead>
 	      <tr>
@@ -44,6 +44,14 @@ export async function getStandings() {
 		   {/each}
 	    </tbody>
 	  </table>
+
+	  {#if standings.length}
+		  <div class="container text-center w-full mt-5 bg-gray-600 text-white p-2 rounded-full">
+			 <h3 class="font-bold">Summary</h3>
+		    <p>Ante total match wins: {standings.filter(item => item.winner == "ANTE").length}</p>
+		    <p>Luka total match wins: {standings.filter(item => item.winner == "LUKA").length}</p>			  
+		  </div>
+	  {/if}
 	</div>
 </div>
 
